@@ -40,27 +40,7 @@
     
 </head>
 <body>
-    <!--Navbar-->
-    <nav class="navbar">
-        <h2>Fleet Management Dashboard</h2>
-        <div class="filters">
-            <select id="filterCategory"> 
-                <option value="All">All Categories</option>
-                <option value="Auto">Auto</option>
-                <option value="Car">Car</option>
-                <option value="Truck">Truck</option>
-                <option value="Bus">Bus</option>
-            </select>
-            <!--filters-->
-            <select id="filterAvailability">
-                <option value="All"> All Availability</option>
-                <option value="Available">Available</option>
-                <option value="Unavailable">Unavailable</option>
-            </select>
-            <button id="clearFilter">Clear Filter</button>
-        </div>
-    </nav>
-    <div class="container">
+    
         <!--SIDEBAR-->
         <div id="sidebar">
             <h3>Add Fleet</h3>
@@ -86,15 +66,30 @@
             <button id="addBtn">Add Fleet</button>
         </div>
         
-            
-          
-            
-           
-            
-         
+    
           
         <!--Main-->
         <div id="main">
+            <!--Navbar-->
+    <div id="navbar">
+      
+            <select id="filterCategory"> 
+                <option value="All">All Categories</option>
+                <option value="Auto">Auto</option>
+                <option value="Car">Car</option>
+                <option value="Truck">Truck</option>
+                <option value="Bus">Bus</option>
+            </select>
+            <!--filters-->
+            <select id="filterAvailability">
+                <option value="All"> All Availability</option>
+                <option value="Available">Available</option>
+                <option value="Unavailable">Unavailable</option>
+            </select>
+            <button id="clearFilter">Clear Filter</button>
+        </div>
+ 
+    <div id="cardcontainer">
 
         </div>
         <!---->
