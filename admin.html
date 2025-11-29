@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fleet Admin</title>
+    <title>Admin Dashboard</title>
     <style>
         body{
             display:flex;
@@ -40,6 +40,7 @@
                 <option value="Truck">Truck</option>
                 <option value="Bus">Bus</option>
             </select>
+            <!--filters-->
             <select id="filterAvailability">
                 <option value="All"> All Availability</option>
                 <option value="Available">Available</option>
@@ -50,12 +51,28 @@
     </nav>
     <div class="container">
         <!--SIDEBAR-->
-        <aside class="sidebar">
+        <div id="sidebar">
             <h3>Add Fleet</h3>
-            <label>Reg No:</label>
-            <input type="text" id="regNo">
-            <label>Category:</label>
+            <input type="text" id="reg" placeholder="Reg No">
+            <br>
+            <br>
             <select id="category">
+            <option value="">Select Category</option>
+            <option value="Auto">Auto</option>
+            <option value="Car">Car</option>
+            <option value="Truck">Truck</option>
+            <option value="Bus">Bus</option>>
+            </select>
+            <br>
+            <br>
+            <button id="addFleetBtn">Add Fleet</button>
+        </div>
+        
+            
+          
+            
+           
+            
             <option value="Auto">Auto</option>
             <option value="Car">Car</option>
             <option value="Truck">Truck</option>
@@ -77,5 +94,34 @@
         <!---->
 
     </div>
+    <script>
+        let fleetData=[];
+        document.getElementById("addbtn").addEventListener("click",function(){
+            let reg=document.getElementById("reg").value.trim();
+            let cat=document.getElementById("category").value();
+            let driver=document.getElementById("reg").value.trim();
+            let avail=document.getElementById("reg").value();
+            if(!reg || !cat||!driver)
+        {
+            alert("All fields are required");
+            return;
+        }
+        let fleet={
+            reg,
+            cat,
+            driver,
+            avail
+
+        };
+        fleetData.push(fleet);
+        //clear form
+        document.getElementById("reg").value="";
+        document.getElementById("category").value="";
+        document.getElementById("driver").value="";
+        document.getElementById("avail").value="";
+        console.log(fleetData);
+
+        });
+    </script>
 </body>
 </html>
