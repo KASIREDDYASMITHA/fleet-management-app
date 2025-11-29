@@ -118,10 +118,28 @@
         document.getElementById("reg").value="";
         document.getElementById("category").value="";
         document.getElementById("driver").value="";
-        document.getElementById("avail").value="";
-        console.log(fleetData);
+        document.getElementById("avail").value="Available";
+        renderCards(fleetData);
+
+        
 
         });
+        function renderCards(data){
+            const conatiner=document.getElementById("cardConatiner");
+            conatiner.innerHTML="";
+            data.forEach((item)=>{
+                const card=document.createElement("div");
+                card.className="Fleet-card";
+                card.innerHTML=`<img src="${https://coding-platform.s3.amazonaws.com/dev/lms/tickets/5e80fcb6-3f8e-480c-945b-30a5359eb40e/JNmYjkVr3WOjsrbu.png}">
+                <h3>${item.reg}</h3>
+                <p>Category:$
+                    {item.cat}</p>
+                    <p>Driver:${item.driver}</p>
+                    <p>Status:<b>${item.avail}</b></p>
+
+                `;
+            });
+        }
     </script>
 </body>
 </html>
