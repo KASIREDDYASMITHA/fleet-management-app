@@ -25,6 +25,17 @@
             background: #ddd;
             padding: 10px;
         }
+        .fleet-card{
+            width: 30%;
+            border: 1px solid #aaa;
+            padding:10px;
+            margin: 10px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .fleet-card img{
+            width: 100%;
+        }
     </style>
     
 </head>
@@ -65,7 +76,14 @@
             </select>
             <br>
             <br>
-            <button id="addFleetBtn">Add Fleet</button>
+            <input type="text" id="driver" placeholder="Driver Name">
+            <br>
+            <br>
+            <select id="available"> 
+                <option value="Available">Available</option>
+                <option value="Unavailable">Unavailable</option>
+                </select>
+            <button id="addBtn">Add Fleet</button>
         </div>
         
             
@@ -73,20 +91,8 @@
             
            
             
-            <option value="Auto">Auto</option>
-            <option value="Car">Car</option>
-            <option value="Truck">Truck</option>
-            <option value="Bus">Bus</option>>
-            </select>
-            <label> Driver Name:</label>
-            <input type="text" id="driver">
-            <label>Is Available:</label>
-            <select id="available"> 
-                <option value="Available">Available</option>
-                <option value="Unavailable">Unavailable</option>
-            </select>
-            <button id="addFleetBtn">Add Fleet</button>
-        </aside>
+         
+          
         <!--Main-->
         <div id="main">
 
@@ -125,20 +131,32 @@
 
         });
         function renderCards(data){
-            const conatiner=document.getElementById("cardConatiner");
+            const container=document.getElementById("cardContainer");
             conatiner.innerHTML="";
-            data.forEach((item)=>{
+            data.forEach((item,index)=>{
                 const card=document.createElement("div");
                 card.className="Fleet-card";
-                card.innerHTML=`<img src="${https://coding-platform.s3.amazonaws.com/dev/lms/tickets/5e80fcb6-3f8e-480c-945b-30a5359eb40e/JNmYjkVr3WOjsrbu.png}">
+                card.innerHTML=`<img src="{https://coding-platform.s3.amazonaws.com/dev/ltickets/5e80fcb6-3f8e-480c-945b-30a5359eb40e/JNmYjkVr3WOjsrbu.png}">
                 <h3>${item.reg}</h3>
                 <p>Category:$
                     {item.cat}</p>
                     <p>Driver:${item.driver}</p>
                     <p>Status:<b>${item.avail}</b></p>
+                    <button onclick="updateDriver(${index})">Update Driver</button>
 
                 `;
+                container.appendChild(card);
             });
+        }
+            function updateDriver(i){
+            let newName=prompt("Enter new driver name:");
+            if(!newName || newName.trim()=== "")
+            {
+                alert("Driver name cannot be empty");
+                return;
+            }
+            fleetDat[i].driver=newName;
+
         }
     </script>
 </body>
