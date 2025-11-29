@@ -97,6 +97,7 @@
     </div>
     <script>
         let fleetData=[];
+        const imgURL="https://coding-platform.s3.amazonaws.com/dev/lms/tickets/5e80fcb6-3f8e-480c-945b-30a5359eb40e/JNmYjkVr3WOjsrbu.png";
         document.getElementById("addbtn").addEventListener("click",function(){
             let reg=document.getElementById("reg").value.trim();
             let cat=document.getElementById("category").value();
@@ -120,7 +121,7 @@
         document.getElementById("category").value="";
         document.getElementById("driver").value="";
         document.getElementById("avail").value="Available";
-        renderCards(fleetData);
+        applyFilters();
 
         
 
@@ -131,7 +132,7 @@
             data.forEach((item,index)=>{
                 const card=document.createElement("div");
                 card.className="Fleet-card";
-                card.innerHTML=`<img src="{https://coding-platform.s3.amazonaws.com/dev/ltickets/5e80fcb6-3f8e-480c-945b-30a5359eb40e/JNmYjkVr3WOjsrbu.png}">
+                conatainer.innerHTML=`<img src="{https://coding-platform.s3.amazonaws.com/dev/ltickets/5e80fcb6-3f8e-480c-945b-30a5359eb40e/JNmYjkVr3WOjsrbu.png}">
                 <h3>${item.reg}</h3>
                 <p>Category:$
                     {item.cat}</p>
@@ -151,7 +152,11 @@
                 return;
             }
             fleetDat[i].driver=newName;
+            applyFilters();
 
+        }
+        function changeAvail(i){
+            fleetData[i].avail=fleetDat[i].avail==="Available"?"UNAVAILABLE""AVAIL";
         }
     </script>
 </body>
